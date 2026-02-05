@@ -1,50 +1,95 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f5f7fa;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom right, #1a1f2b, #2c3447);
+  color: white;
 }
 
-nav {
-    background: #222;
-    padding: 10px 20px;
-    display: flex;
-    gap: 20px;
+/* Header */
+header {
+  text-align: center;
+  padding: 50px 20px;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
-.hero {
-    text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(135deg, #4b8bff, #9ac0ff);
-    color: white;
+header p {
+  font-size: 18px;
+  opacity: 0.8;
 }
 
-section {
-    padding: 40px 20px;
-    max-width: 900px;
-    margin: auto;
+/* Main Layout */
+main {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
 
-.example-box {
-    background: white;
-    padding: 20px;
-    margin: 15px 0;
-    border-left: 6px solid #ccc;
-    border-radius: 6px;
+/* Card */
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  max-width: 600px;
+  width: 90%;
 }
 
-.example-box.good {
-    border-left-color: #4b8bff;
+/* Inputs */
+label {
+  font-weight: 600;
 }
 
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #7f5af0, #9d4edd);
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #9d4edd, #7f5af0);
+}
+
+/* Chart */
+.chart-container {
+  margin-top: 30px;
+}
+
+canvas {
+  width: 100% !important;
+  height: 350px !important;
+}
+
+/* Footer */
 footer {
-    text-align: center;
-    padding: 20px;
-    background: #222;
-    color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  opacity: 0.6;
+  margin-top: 40px;
 }
