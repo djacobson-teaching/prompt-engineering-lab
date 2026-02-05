@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompt Engineering Lab</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>🧠 Prompt Engineering Lab</h1>
+    <p>Explore how small changes in prompts affect AI behavior—interactively.</p>
+</header>
+
+<section id="prompt-section">
+    <h2>Try a Prompt</h2>
+    <textarea id="prompt-input" placeholder="Type a prompt..."></textarea>
+    <button onclick="runPrompt()">Run</button>
+
+    <div id="response-box"></div>
+</section>
+
+<section id="slider-demo">
+    <h2>Prompt Specificity Simulator</h2>
+    <p>Move the slider to increase/decrease specificity levels.</p>
+
+    <input id="specificity-slider" type="range" min="1" max="10" value="5" oninput="updateSpecificity()"/>
+    <p>Specificity Level: <span id="slider-value">5</span></p>
+
+    <canvas id="specificity-chart"></canvas>
+</section>
+
+<section id="graph-demo">
+    <h2>How Prompt Length Impacts Output</h2>
+    <canvas id="length-chart"></canvas>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
