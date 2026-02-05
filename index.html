@@ -9,32 +9,100 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
 
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <header>
-    <h1>Probability Simulator</h1>
-    <p>Explore randomness through interactive simulations</p>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1>Probability Simulator</h1>
+      <p class="subtitle">Explore randomness through interactive simulations — animate, compare with theory, and export your results.</p>
+    </div>
   </header>
 
-  <main>
-    <div class="card">
-      <label for="trials">Number of Trials</label>
-      <input id="trials" type="number" value="1000" min="1" max="200000">
-
-      <button id="run">Run Simulation</button>
-
-      <div class="chart-container">
-        <canvas id="chart"></canvas>
+  <main class="container">
+    <section class="controls card">
+      <div class="control-row">
+        <label for="distribution">Distribution</label>
+        <select id="distribution">
+          <option value="bernoulli">Coin flip (Bernoulli)</option>
+          <option value="dice">Dice (Uniform 1..sides)</option>
+          <option value="binomial">Binomial (n trials per sample)</option>
+        </select>
       </div>
-    </div>
+
+      <div id="params" class="params">
+        <!-- params shown/hidden by JS -->
+        <div class="control-row param bernoulli">
+          <label for="p">Probability p (heads)</label>
+          <input id="p" type="number" step="0.01" min="0" max="1" value="0.5">
+        </div>
+
+        <div class="control-row param dice" style="display:none">
+          <label for="sides">Sides</label>
+          <input id="sides" type="number" min="2" max="100" value="6">
+        </div>
+
+        <div class="control-row param binomial" style="display:none">
+          <label for="n_binomial">n (trials per sample)</label>
+          <input id="n_binomial" type="number" min="1" max="100" value="10">
+          <label for="p_binomial" class="inline">p</label>
+          <input id="p_binomial" type="number" step="0.01" min="0" max="1" value="0.5">
+        </div>
+      </div>
+
+      <div class="control-row">
+        <label for="trials">Number of samples</label>
+        <input id="trials" type="number" value="1000" min="1" max="200000" />
+        <input id="trialsRange" type="range" min="1" max="200000" value="1000" />
+      </div>
+
+      <div class="control-row buttons">
+        <button id="run" class="btn primary">Run (instant)</button>
+        <button id="animate" class="btn">Animate</button>
+        <button id="pause" class="btn" disabled>Pause</button>
+        <button id="reset" class="btn">Reset</button>
+        <button id="download" class="btn">Download CSV</button>
+      </div>
+
+      <div class="control-row">
+        <label for="batchSize">Animation batch size</label>
+        <input id="batchSize" type="number" min="1" max="100000" value="500" />
+        <small class="muted">Smaller = smoother animation; larger = faster completion.</small>
+      </div>
+    </section>
+
+    <section class="visual card">
+      <div class="chart-and-stats">
+        <div class="chart-container">
+          <canvas id="chart"></canvas>
+        </div>
+        <aside class="stats">
+          <h3>Live summary</h3>
+          <p><strong>Samples completed:</strong> <span id="done">0</span></p>
+          <p><strong>Sample mean:</strong> <span id="mean">—</span></p>
+          <p><strong>Sample variance:</strong> <span id="variance">—</span></p>
+          <p><strong>Theoretical mean:</strong> <span id="theoMean">—</span></p>
+          <p><strong>Theoretical variance:</strong> <span id="theoVar">—</span></p>
+          <div id="progressBar" class="progress"><div id="progressFill"></div></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="notes card">
+      <h3>Tips</h3>
+      <ul>
+        <li>Use Animate to watch counts build over time; pause/resume anytime.</li>
+        <li>Try large sample sizes (10K+) to see convergence to the theoretical distribution.</li>
+        <li>Download CSV to analyze results in spreadsheets or Python/R.</li>
+      </ul>
+    </section>
   </main>
 
-  <footer>
-    <p>Built with ❤️ for probability exploration</p>
+  <footer class="site-footer">
+    <p>Built with ❤️ for probability exploration — enhance or request features on the repo.</p>
   </footer>
 
   <script src="script.js"></script>

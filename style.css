@@ -1,95 +1,48 @@
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(to bottom right, #1a1f2b, #2c3447);
-  color: white;
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --muted:#9aa4b2;
+  --accent:#60a5fa;
+  --accent-2:#7c3aed;
+  --surface:#071022;
+  --text:#e6eef6;
+  --glass: rgba(255,255,255,0.03);
+  --success: #10b981;
+  font-synthesis: none;
 }
 
-/* Header */
-header {
-  text-align: center;
-  padding: 50px 20px;
-}
+*{box-sizing:border-box}
+html,body{height:100%; margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial; background:linear-gradient(180deg,#071428 0%, #07192b 100%); color:var(--text); -webkit-font-smoothing:antialiased}
+.container{max-width:1100px; margin:28px auto; padding:0 18px}
 
-header h1 {
-  font-size: 42px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
+.site-header{padding:28px 0 6px}
+.header-inner h1{margin:0; font-weight:700; font-size:1.8rem; letter-spacing:-0.02em}
+.subtitle{margin:6px 0 0; color:var(--muted)}
 
-header p {
-  font-size: 18px;
-  opacity: 0.8;
-}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.04); padding:18px; border-radius:12px; margin-bottom:18px; box-shadow: 0 8px 30px rgba(2,6,23,0.6)}
 
-/* Main Layout */
-main {
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-}
+.controls .control-row{display:flex; align-items:center; gap:12px; margin-bottom:12px}
+.controls label{min-width:150px; color:var(--muted); font-weight:600; font-size:0.95rem}
+.controls input[type="number"], .controls select, .controls input[type="range"]{flex:1; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:var(--glass); color:var(--text)}
+.controls input[type="range"]{height:32px}
+.controls .btn{padding:8px 12px; border-radius:8px; border:0; background:transparent; color:var(--text); cursor:pointer}
+.controls .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:white; box-shadow:0 6px 18px rgba(96,165,250,0.12)}
+.controls .buttons{flex-wrap:wrap}
 
-/* Card */
-.card {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(14px);
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  padding: 30px;
-  max-width: 600px;
-  width: 90%;
-}
+.chart-and-stats{display:flex; gap:18px; align-items:flex-start}
+.chart-container{flex:1; min-width:280px; background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02)); padding:12px; border-radius:10px}
+.chart-container canvas{width:100% !important; height:420px !important}
 
-/* Inputs */
-label {
-  font-weight: 600;
-}
+.stats{width:260px; background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02)); padding:12px; border-radius:10px}
+.stats h3{margin-top:0}
+.muted{color:var(--muted); font-size:0.85rem}
+.progress{height:10px; background:rgba(255,255,255,0.03); border-radius:6px; margin-top:8px}
+#progressFill{height:100%; width:0%; background:linear-gradient(90deg,var(--accent),var(--accent-2)); border-radius:6px}
 
-input {
-  width: 100%;
-  padding: 12px;
-  margin-top: 8px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  font-size: 16px;
-}
-
-/* Button */
-button {
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #7f5af0, #9d4edd);
-  color: white;
-  font-size: 18px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.25s ease;
-}
-
-button:hover {
-  transform: translateY(-2px);
-  background: linear-gradient(135deg, #9d4edd, #7f5af0);
-}
-
-/* Chart */
-.chart-container {
-  margin-top: 30px;
-}
-
-canvas {
-  width: 100% !important;
-  height: 350px !important;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-  opacity: 0.6;
-  margin-top: 40px;
+.notes ul{margin:0; padding-left:18px}
+.site-footer{padding:18px; text-align:center; color:var(--muted); font-size:0.9rem}
+@media (max-width:900px){
+  .chart-and-stats{flex-direction:column}
+  .stats{width:100%}
+  .controls label{min-width:120px}
 }
