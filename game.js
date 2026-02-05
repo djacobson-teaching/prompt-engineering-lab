@@ -1,35 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prompt Engineering Game</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+function scorePrompt() {
+    const text = document.getElementById("game-input").value.toLowerCase();
+    let score = 0;
 
-<nav>
-    <a href="index.html">Home</a>
-    <a href="game.html">Interactive Game</a>
-</nav>
+    // Scoring rules
+    if (text.includes("10th") || text.includes("grade")) score += 20;
+    if (text.includes("recursion")) score += 20;
+    if (text.includes("simple") || text.includes("easy")) score += 15;
+    if (text.includes("analogy") || text.includes("visual")) score += 25;
+    if (text.includes("explain") || text.includes("teach")) score += 10;
+    if (text.includes("steps") || text.includes("example")) score += 10;
 
-<header class="hero">
-    <h1>🎮 Prompt Engineering Challenge</h1>
-    <p>Write a better prompt than the AI. Score points. Level up.</p>
-</header>
+    let message = "";
 
-<section>
-    <h2>Scenario</h2>
-    <p>You need the AI to explain recursion to a 10th grader using simple language and one visual analogy.</p>
+    if (score < 40) {
+        message = "😬 Needs work. Try specifying the audience, task, and format.";
+    } else if (score < 70) {
+        message = "👍 Not bad! Add clarity, constraints, or examples to boost it.";
+    } else if (score < 90) {
+        message = "🔥 Strong prompt! You're thinking like a prompt engineer.";
+    } else {
+        message = "🚀 Perfect! This is a top-tier prompt.";
+    }
 
-    <h2>Your Prompt</h2>
-    <textarea id="game-input" placeholder="Write your prompt here..."></textarea>
-
-    <button onclick="scorePrompt()">Submit</button>
-
-    <div id="result"></div>
-</section>
-
-<script src="game.js"></script>
-</body>
-</html>
+    document.getElementById("result").innerHTML = `
+        <h3>Your Score: ${score} / 100</h3>
+        <p>${message}</p>
+    `;
+}
