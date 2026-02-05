@@ -1,59 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prompt Engineering Lab</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Probability Simulator</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <header>
+    <h1>Probability Simulator</h1>
+    <p>Explore randomness through interactive simulations</p>
+  </header>
 
-<nav>
-    <a href="index.html">Home</a>
-    <a href="#basics">Basics</a>
-    <a href="#strategies">Strategies</a>
-    <a href="#examples">Examples</a>
-    <a href="game.html">Interactive Game</a>
-</nav>
+  <main>
+    <div class="card">
+      <label for="trials">Number of Trials</label>
+      <input id="trials" type="number" value="1000" min="1" max="200000">
 
-<header class="hero">
-    <h1>🧠 Prompt Engineering Lab</h1>
-    <p>Learn how prompts shape AI behavior — then test your skills in the interactive game.</p>
-</header>
+      <button id="run">Run Simulation</button>
 
-<section id="basics">
-    <h2>What Is Prompt Engineering?</h2>
-    <p>Prompt engineering is the practice of designing high-quality inputs that guide AI models to produce the best possible outputs. A good prompt defines context, the task, constraints, examples, and output structure.</p>
-</section>
-
-<section id="strategies">
-    <h2>Core Strategies</h2>
-    <ul>
-        <li><strong>Specify the role</strong> — e.g., “Act as a math tutor…”</li>
-        <li><strong>Set constraints</strong> — length, tone, style, format.</li>
-        <li><strong>Break tasks into steps</strong> — reasoning prompts, chain-of-thought style.</li>
-        <li><strong>Give examples</strong> — show sample inputs & outputs.</li>
-        <li><strong>Iterate</strong> — refine your prompt repeatedly.</li>
-    </ul>
-</section>
-
-<section id="examples">
-    <h2>Good vs. Weak Prompts</h2>
-
-    <div class="example-box">
-        <h3>Weak Prompt</h3>
-        <p>"Explain probability."</p>
+      <div class="chart-container">
+        <canvas id="chart"></canvas>
+      </div>
     </div>
+  </main>
 
-    <div class="example-box good">
-        <h3>Good Prompt</h3>
-        <p>"Explain probability at a 9th-grade level using simple examples, short paragraphs, and a mini-practice problem at the end."</p>
-    </div>
-</section>
+  <footer>
+    <p>Built with ❤️ for probability exploration</p>
+  </footer>
 
-<footer>
-    <p>Built by Dane Jacobson | Prompt Engineering Lab</p>
-</footer>
-
+  <script src="script.js"></script>
 </body>
 </html>
